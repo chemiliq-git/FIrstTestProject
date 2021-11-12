@@ -23,5 +23,5 @@ stages:
         repository: 'chemiliqdocket/currency-exchange-api-image'
         command: 'build'
         Dockerfile: '**/src/Services/CurrencyExchange/Dockerfile'
-        buildContext: $(Agent.BuildDirectory)/1/src
+        buildContext: $(Agent.BuildDirectory)/src
         tags: '$(tag)'
