@@ -21,7 +21,7 @@ stages:
       inputs:
         containerRegistry: 'chemiliq-docker-hub-connection'
         repository: 'chemiliqdocket/currency-exchange-api-image'
-        command: 'build'
+        command: 'buildAndPush'
         Dockerfile: '**/src/Services/CurrencyExchange/Dockerfile'
         buildContext: $(Agent.BuildDirectory)/s/src
         tags: '$(tag)'
