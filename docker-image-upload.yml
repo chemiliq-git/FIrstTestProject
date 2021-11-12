@@ -17,11 +17,20 @@ stages:
       vmImage: ubuntu-latest
     steps:
     - task: Docker@2
-      displayName: Build an image
+      displayName: Build an image and push currency exchange api
       inputs:
         containerRegistry: 'chemiliq-docker-hub-connection'
         repository: 'chemiliqdocket/currency-exchange-api-image'
         command: 'buildAndPush'
         Dockerfile: '**/src/Services/CurrencyExchange/Dockerfile'
+        buildContext: $(Agent.BuildDirectory)/s/src
+        tags: '$(tag)'
+    - task: Docker@2
+      displayName: Build an image and push currency conversion api
+      inputs:
+        containerRegistry: 'chemiliq-docker-hub-connection'
+        repository: 'chemiliqdocket/currency-conversion-api-image'
+        command: 'buildAndPush'
+        Dockerfile: '**/src/Services/CurrencyConversion/Dockerfile'
         buildContext: $(Agent.BuildDirectory)/s/src
         tags: '$(tag)'
