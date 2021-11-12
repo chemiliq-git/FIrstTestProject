@@ -7,10 +7,10 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
 WORKDIR /src
-COPY ["CurrencyExchange.csproj", "."]
-RUN dotnet restore "./CurrencyExchange.csproj"
+COPY ["Services/CurrencyExchange/CurrencyExchange.csproj", "Services/CurrencyExchange/"]
+RUN dotnet restore "Services/CurrencyExchange/CurrencyExchange.csproj"
 COPY . .
-WORKDIR "/src/."
+WORKDIR "/src/Services/CurrencyExchange"
 RUN dotnet build "CurrencyExchange.csproj" -c Release -o /app/build
 
 FROM build AS publish

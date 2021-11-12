@@ -8,6 +8,6 @@ namespace CurrencyExchange.Services
 {
     public interface ICurrencyExchangeService
     {
-        public IEnumerable<CurrencyExchangeResult> GetCurrencyExchanges(CurrencyExchangeInput inputData);
+        public CurrencyExchangeResult GetCurrencyExchanges(CurrencyExchangeInput inputData);
     }
 }

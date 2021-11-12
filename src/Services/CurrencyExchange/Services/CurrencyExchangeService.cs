@@ -8,18 +8,17 @@ namespace CurrencyExchange.Services
 {
     public class CurrencyExchangeService : ICurrencyExchangeService
     {
-        public IEnumerable<CurrencyExchangeResult> GetCurrencyExchanges(CurrencyExchangeInput inputData)
+        public CurrencyExchangeResult GetCurrencyExchanges(CurrencyExchangeInput inputData)
         {
-            return new List<CurrencyExchangeResult>() {
+            return
                 new CurrencyExchangeResult()
                 {
                     ID = "100",
                     IsValidConversion = true,
-                    FromCurrency ="USD",
+                    FromCurrency = "USD",
                     ToCurrency = "INR",
                     ConversionMultiple = 65,
-                }
-            };
+                };
         }
     }
 }

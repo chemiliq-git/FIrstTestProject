@@ -5,3 +5,8 @@
 /src/Services/CurrencyExchange/.vs/CurrencyExchange/config
 /src/Services/CurrencyExchange/.vs/CurrencyExchange/v16
 /src/Services/CurrencyExchange/CurrencyExchange.sln
+/src/Services/CurrencyConversion/bin
+/src/Services/CurrencyConversion/obj
+/src/Services/CurrencyConversion/CurrencyConversion.csproj.user
+/src/.vs
+/src/Services/CurrencyExchange/.vs

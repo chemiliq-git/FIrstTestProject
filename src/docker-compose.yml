@@ -1,0 +1,31 @@
+version: '3.7'
+services:
+  currency-exchange:
+    image: chemiliqdocket/currency-exchange-api-image:0.0.1-RELEASE
+    build:
+      context: .
+      dockerfile: Services/CurrencyExchange/Dockerfile
+    ports:
+      - "3000:80"
+    restart: always
+    networks:
+      - currency-compose-network
+
+  currency-conversion:
+    image: chemiliqdocket/currency-conversion-api-image:0.0.1-RELEASE
+    build:
+      context: .
+      dockerfile: Services/CurrencyConversion/Dockerfile
+    ports:
+      - "3001:80"
+    restart: always
+    environment:
+      CurrencyExchangeServerAddress: http://currency-exchange:80/CurrencyExchange
+    depends_on:
+      - currency-exchange
+    networks:
+      - currency-compose-network
+  
+# Networks to be created to facilitate communication between containers
+networks:
+  currency-compose-network:

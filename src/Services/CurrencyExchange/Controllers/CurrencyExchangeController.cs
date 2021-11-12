@@ -26,7 +26,7 @@ namespace CurrencyExchange.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<CurrencyExchangeResult> Get(CurrencyExchangeInput currencyExchangeInput)
+        public CurrencyExchangeResult Get(CurrencyExchangeInput currencyExchangeInput)
         {
             return this.currencyExchangeService.GetCurrencyExchanges(currencyExchangeInput);
         }
