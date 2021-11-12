@@ -1,0 +1,7 @@
+/.vs
+/src/Services/CurrencyExchange/bin
+/src/Services/CurrencyExchange/obj
+/src/Services/CurrencyExchange/CurrencyExchange.csproj.user
+/src/Services/CurrencyExchange/.vs/CurrencyExchange/config
+/src/Services/CurrencyExchange/.vs/CurrencyExchange/v16
+/src/Services/CurrencyExchange/CurrencyExchange.sln
