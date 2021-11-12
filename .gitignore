@@ -10,3 +10,5 @@
 /src/Services/CurrencyConversion/CurrencyConversion.csproj.user
 /src/.vs
 /src/Services/CurrencyExchange/.vs
+/src/bin
+/src/obj

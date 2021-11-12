@@ -18,6 +18,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CurrencyConversion", "Curre
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CurrencyExchange", "CurrencyExchange", "{C25F28F5-5973-4F49-AE54-51E1EB2EFE9F}"
 EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{5733D3E9-6F8C-4D1F-9501-43BC4D44EAF8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -32,6 +34,10 @@ Global
 		{1E8422E3-546F-4E5A-B614-1A0C53091B57}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1E8422E3-546F-4E5A-B614-1A0C53091B57}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1E8422E3-546F-4E5A-B614-1A0C53091B57}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5733D3E9-6F8C-4D1F-9501-43BC4D44EAF8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5733D3E9-6F8C-4D1F-9501-43BC4D44EAF8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5733D3E9-6F8C-4D1F-9501-43BC4D44EAF8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5733D3E9-6F8C-4D1F-9501-43BC4D44EAF8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
