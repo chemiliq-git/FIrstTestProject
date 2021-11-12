@@ -5,12 +5,18 @@ VisualStudioVersion = 16.0.31829.152
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CurrencyExchange", "Services\CurrencyExchange\CurrencyExchange.csproj", "{992FC7E9-3D8D-4A89-93A9-B4C908D4F4E0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CurrencyConversion", "Services\CurrencyConversion\CurrencyConversion.csproj", "{1E8422E3-546F-4E5A-B614-1A0C53091B57}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CurrencyConversion", "Services\CurrencyConversion\CurrencyConversion.csproj", "{1E8422E3-546F-4E5A-B614-1A0C53091B57}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{FA59C997-6F5F-42D0-BD8A-5566ED675E8D}"
 	ProjectSection(SolutionItems) = preProject
 		docker-compose.yml = docker-compose.yml
 	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{246A9836-9AD2-4549-BFEC-E623B3EA19E6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CurrencyConversion", "CurrencyConversion", "{C6C7EBB5-EF0E-4244-B03D-46A179825A94}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CurrencyExchange", "CurrencyExchange", "{C25F28F5-5973-4F49-AE54-51E1EB2EFE9F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,6 +35,12 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{992FC7E9-3D8D-4A89-93A9-B4C908D4F4E0} = {C25F28F5-5973-4F49-AE54-51E1EB2EFE9F}
+		{1E8422E3-546F-4E5A-B614-1A0C53091B57} = {C6C7EBB5-EF0E-4244-B03D-46A179825A94}
+		{C6C7EBB5-EF0E-4244-B03D-46A179825A94} = {246A9836-9AD2-4549-BFEC-E623B3EA19E6}
+		{C25F28F5-5973-4F49-AE54-51E1EB2EFE9F} = {246A9836-9AD2-4549-BFEC-E623B3EA19E6}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {AB1C82C0-1552-46F4-9514-2A3168488ADC}
