@@ -1,10 +1,13 @@
+using Microsoft.Extensions.DependencyInjection;
+using CurrencyExchange.EventBusConsumer;
 using CurrencyExchange.Services;
+using EventBus.Messages.Common;
+using MassTransit;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
@@ -27,12 +30,33 @@ namespace CurrencyExchange
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddApplicationServices();
+
+            services.AddAutoMapper(typeof(Startup));
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "CurrencyExchange", Version = "v1" });
             });
+
+            // MassTransit-RabbitMQ Configuration
+            services.AddMassTransit(config => {
+
+                config.AddConsumer<CurrencyExchangeConsumer>();
+
+                config.UsingRabbitMq((ctx, cfg) => {
+                    string host = Configuration["RabbitMQ"];
+                    cfg.Host($"amqp://guest:guest@{host}:5672");
+
+                    cfg.ReceiveEndpoint(EventBusConstants.CurrencyExchangeQueue, c => {
+                        c.ConfigureConsumer<CurrencyExchangeConsumer>(ctx);
+                    });
+                });
+            });
+            services.AddMassTransitHostedService();
+
+            services.AddScoped<CurrencyExchangeConsumer>();
 
             services.AddScoped<ICurrencyExchangeService, CurrencyExchangeService>();
         }

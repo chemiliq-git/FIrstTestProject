@@ -43,11 +43,11 @@ namespace CurrencyConversion.Services
                 {
                     Id = result.id,
                     IsValidConversion = true,
-                    ConversionMultiple = result.conversionMultiple,
-                    FromCurrency = result.fromCurrency,
-                    ToCurrency = result.toCurrency,
+                    ConversionMultiple = result.ConversionMultiple,
+                    FromCurrency = result.FromCurrency,
+                    ToCurrency = result.ToCurrency,
                     Quantity = inputData.Quantity,
-                    TotalCalculateAmount = inputData.Quantity * result.conversionMultiple,
+                    TotalCalculateAmount = inputData.Quantity * result.ConversionMultiple,
                 };
             }
             else
@@ -59,6 +59,11 @@ namespace CurrencyConversion.Services
                 };
             }
 
+        }
+
+        public Task<CurrencyConversionResult> CalculateCurrencyConversionMQAsync(CurrencyConversionInput inputData)
+        {
+            return null;
         }
     }
 }

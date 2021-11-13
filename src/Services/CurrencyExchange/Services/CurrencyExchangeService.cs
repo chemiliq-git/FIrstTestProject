@@ -13,11 +13,11 @@ namespace CurrencyExchange.Services
             return
                 new CurrencyExchangeResult()
                 {
-                    ID = "100",
                     IsValidConversion = true,
                     FromCurrency = "USD",
                     ToCurrency = "INR",
                     ConversionMultiple = 65,
+                    Quantity = inputData.Quantity,
                 };
         }
     }

@@ -1,18 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using CurrencyConversion.DTO;
+using MediatR;
 
-namespace CurrencyExchange.DTO
+namespace CurrencyConversion.Commands
 {
-    public class CurrencyExchangeResult
+    public class CurrencyConversionCommand : IRequest<CurrencyConversionResult>
     {
         public bool IsValidConversion { get; set; }
 
         public string FromCurrency { get; set; }
-     
+
         public string ToCurrency { get; set; }
-        
+
         public decimal ConversionMultiple { get; set; }
 
         public decimal Quantity { get; set; }

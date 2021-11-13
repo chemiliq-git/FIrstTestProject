@@ -9,5 +9,7 @@ namespace CurrencyConversion.Services
     public interface ICurrencyConversionService
     {
         public Task<CurrencyConversionResult> CalculateCurrencyConversionAsync(CurrencyConversionInput inputData);
+
+        public Task<CurrencyConversionResult> CalculateCurrencyConversionMQAsync(CurrencyConversionInput inputData);
     }
 }

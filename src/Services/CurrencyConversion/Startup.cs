@@ -1,4 +1,7 @@
+using CurrencyConversion.EventBusConsumer;
 using CurrencyConversion.Services;
+using EventBus.Messages.Common;
+using MassTransit;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -27,12 +30,33 @@ namespace CurrencyConversion
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddApplicationServices();
+
+            services.AddAutoMapper(typeof(Startup));
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "CurrencyConversion", Version = "v1" });
             });
+
+            // MassTransit-RabbitMQ Configuration
+            services.AddMassTransit(config => {
+                
+                config.AddConsumer<CurrencyConversionConsumer>();
+
+                config.UsingRabbitMq((ctx, cfg) => {
+                    string host = Configuration["RabbitMQ"];
+                    cfg.Host($"amqp://guest:guest@{host}:5672");
+
+                    cfg.ReceiveEndpoint(EventBusConstants.CurrencyConversionQueue, c => {
+                        c.ConfigureConsumer<CurrencyConversionConsumer>(ctx);
+                    });
+                });
+            });
+            services.AddMassTransitHostedService();
+            
+            services.AddScoped<CurrencyConversionConsumer>();
 
             services.AddScoped<ICurrencyConversionService, CurrencyConversionService>();
         }

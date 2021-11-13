@@ -12,3 +12,5 @@
 /src/Services/CurrencyExchange/.vs
 /src/bin
 /src/obj
+/src/BuildingBlocks/EventBus.Messages/obj
+/src/BuildingBlocks/EventBus.Messages/bin

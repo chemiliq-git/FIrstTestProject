@@ -1,6 +1,21 @@
-version: '3.4'
+version: '3.8'
 
 services:
+  myrabbitmq:
+    #image: rabbitmq:3.7.28-management
+    image: rabbitmq:3-management-alpine
+    ports:
+    - "5671:5671"
+    - "5672:5672"
+    - "15672:15672"
+    healthcheck:
+      test: [ "CMD", "rabbitmqctl", "status"]
+      interval: 5s
+      timeout: 10s
+      retries: 15
+    networks:
+      - currency-compose-network
+
   currency-exchange:
     image: chemiliqdocket/currency-exchange-api-image:${TAG:-latest}
     build:
@@ -9,6 +24,12 @@ services:
     ports:
       - "3000:80"
     restart: always
+    environment:
+      EventBusSettings.HostAddress: amqp://guest:guest@myrabbitmq:5672"
+      RabbitMQ: myrabbitmq
+    depends_on:
+      myrabbitmq:
+        condition: service_healthy
     networks:
       - currency-compose-network
 
@@ -22,8 +43,11 @@ services:
     restart: always
     environment:
       CurrencyExchangeServerAddress: http://currency-exchange:80/CurrencyExchange
+      EventBusSettings.HostAddress: amqp://guest:guest@myrabbitmq:5672"
+      RabbitMQ: myrabbitmq
     depends_on:
       - currency-exchange
+      - myrabbitmq
     networks:
       - currency-compose-network
 

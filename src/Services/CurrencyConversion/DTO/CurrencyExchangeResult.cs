@@ -12,11 +12,13 @@ namespace CurrencyConversion.DTO
 
         public bool? IsValidConversion { get; set; }
 
-        public string fromCurrency { get; set; }
+        public string FromCurrency { get; set; }
 
-        public string toCurrency { get; set; }
+        public string ToCurrency { get; set; }
 
-        public decimal conversionMultiple { get; set; }
+        public decimal ConversionMultiple { get; set; }
+
+        public decimal Quantity { get; set; }
 
         [JsonIgnore]
         public string ErrorMessage { get; set; }

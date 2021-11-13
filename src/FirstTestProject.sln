@@ -20,6 +20,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CurrencyExchange", "Currenc
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{5733D3E9-6F8C-4D1F-9501-43BC4D44EAF8}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BuildingBlocks", "BuildingBlocks", "{B0C1204E-0564-495B-814E-FED3BC570203}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventBus.Messages", "BuildingBlocks\EventBus.Messages\EventBus.Messages.csproj", "{8D866D44-0989-401D-97D7-3801AD477863}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -38,6 +42,10 @@ Global
 		{5733D3E9-6F8C-4D1F-9501-43BC4D44EAF8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5733D3E9-6F8C-4D1F-9501-43BC4D44EAF8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5733D3E9-6F8C-4D1F-9501-43BC4D44EAF8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D866D44-0989-401D-97D7-3801AD477863}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D866D44-0989-401D-97D7-3801AD477863}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D866D44-0989-401D-97D7-3801AD477863}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D866D44-0989-401D-97D7-3801AD477863}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -47,6 +55,7 @@ Global
 		{1E8422E3-546F-4E5A-B614-1A0C53091B57} = {C6C7EBB5-EF0E-4244-B03D-46A179825A94}
 		{C6C7EBB5-EF0E-4244-B03D-46A179825A94} = {246A9836-9AD2-4549-BFEC-E623B3EA19E6}
 		{C25F28F5-5973-4F49-AE54-51E1EB2EFE9F} = {246A9836-9AD2-4549-BFEC-E623B3EA19E6}
+		{8D866D44-0989-401D-97D7-3801AD477863} = {B0C1204E-0564-495B-814E-FED3BC570203}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {AB1C82C0-1552-46F4-9514-2A3168488ADC}
